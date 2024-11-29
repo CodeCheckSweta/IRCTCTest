@@ -11,16 +11,14 @@ public final class HomePage extends BasePage {
 		super();
 		PageFactory.initElements(driver, this);
 	}
-
-	private final By mobileLink = By.xpath("//span[text()='Mobiles & Tablets']");
+	
+	private final By loginBtn = By.xpath("//a[contains(text(),'LOGIN')]");
 	private final By travelLink = By.xpath("//span[text()='Flight Bookings']");
-	private final By searchBox = By.xpath("//input[@title='Search for Products, Brands and More']");
-	private final By searchButton = By.xpath("//button[@type='submit']");
 
 
-	public MobilePage navigateToMobilePage() {
-		click(mobileLink, WaitStrategy.CLICKABLE, "Mobile Page Link");
-		return new MobilePage(); // method chaining
+	public LoginPage navigateToLoginPage() {
+		click(loginBtn, WaitStrategy.CLICKABLE, "Login Button");
+		return new LoginPage(); // method chaining
 	}
 
 	public TravelPage navigateToTravelPage() {
@@ -28,10 +26,4 @@ public final class HomePage extends BasePage {
 		return new TravelPage(); // method chaining
 	}
 	
-	public  ProductNoisePage navigatetoProductNoisePage(String productName) throws InterruptedException {
-		clearAndSendKeys(searchBox, productName, WaitStrategy.CLICKABLE, "Products Search Box");
-		click(searchButton, WaitStrategy.CLICKABLE, "Search Button");
-		return new ProductNoisePage();
-	}
-
 }

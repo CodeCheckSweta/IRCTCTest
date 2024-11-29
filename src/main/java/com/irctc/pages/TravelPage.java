@@ -22,22 +22,22 @@ public class TravelPage extends BasePage {
 		return getPageTitle();
 	}
 
-	private final By departureCity = By.name("0-departcity");
-	private final By arrivalCity = By.name("0-arrivalcity");
+	private final By departureCity = By.xpath("//p-autocomplete[@id='origin']");
+	private final By arrivalCity = By.xpath("//p-autocomplete[@id='destination']");
 	private final By departureDate = By.name("0-datefrom");
 	private final By nextMonthBtn = By.xpath("//div[@class='au1mSN']//button[@class='R0r93E']");
 	private final By searchBtn = By.xpath("//span[text()='SEARCH']");
 
 	public TravelPage searchFlights(String source, String dest, String month_year, String day) throws InterruptedException {
-		clearAndSendKeys(departureCity, source, WaitStrategy.VISIBLE, "Departure City");
-		By depart= By.xpath("//input[@name='0-departcity']//following::span[text()='"+source+"']");
-		click(depart, WaitStrategy.CLICKABLE, "Departure City");
-		clearAndSendKeys(arrivalCity, dest, WaitStrategy.VISIBLE, "Arrival City");
-		By arrival= By.xpath("//input[@name='0-arrivalcity']//following::span[text()='"+dest+"']");
-		click(arrival, WaitStrategy.CLICKABLE, "Arrival City");
-		selectDate(month_year, day);
-		click(searchBtn, WaitStrategy.CLICKABLE, "Search Button");
-		Thread.sleep(5000);
+//		clearAndSendKeys(departureCity, source, WaitStrategy.VISIBLE, "Departure City");
+//		By depart= By.xpath("//input[@name='0-departcity']//following::span[text()='"+source+"']");
+//		click(depart, WaitStrategy.CLICKABLE, "Departure City");
+//		clearAndSendKeys(arrivalCity, dest, WaitStrategy.VISIBLE, "Arrival City");
+//		By arrival= By.xpath("//input[@name='0-arrivalcity']//following::span[text()='"+dest+"']");
+//		click(arrival, WaitStrategy.CLICKABLE, "Arrival City");
+//		selectDate(month_year, day);
+//		click(searchBtn, WaitStrategy.CLICKABLE, "Search Button");
+//		Thread.sleep(5000);
 		return this;
 	}
 
